@@ -1,0 +1,1 @@
+<h1>Voici une boutique</h1>
