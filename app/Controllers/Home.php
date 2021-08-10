@@ -3,9 +3,11 @@
 namespace App\Controllers;
 
 /**
- * On appelle la classe Admin
+ * On appelle la classe Admin et Ambassadeur
  */
+
 use App\Controllers\Admin\Shop as AdminShop;
+use App\Controllers\Ambassadeur\Shop as AmbassadeurShop;
 
 class Home extends BaseController
 {
@@ -20,13 +22,20 @@ class Home extends BaseController
 		 * From public Shop ctr
 		 */
 		$shop = new Shop();
-		echo $shop->product("Ordi","411");
+		echo $shop->product("Ordi", "411");
 
 		/**
 		 * From Admin Shop
 		 */
 
-		 $adminShop = new adminShop();
-		 echo $adminShop->product("HP","hP4410");
+		$adminShop = new adminShop();
+		echo $adminShop->product("HP", "hP4410");
+
+		/**
+		 *   Frome Ambassadeur Ctrl
+		 */
+
+		 $ambashop = new AmbassadeurShop();
+		 echo $ambashop->product("80","Mac");
 	}
 }

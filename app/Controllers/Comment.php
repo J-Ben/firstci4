@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-class Shop extends BaseController
+class Comment extends BaseController
 {
 	public function index()
 	{
-		return view('shop');
+		return view('comment');
 		/**
 		 *  on peut charger plusieurs vues
 		 * echo  view('welcome_message');
@@ -14,13 +14,13 @@ class Shop extends BaseController
 		
 	}
 
-	public function product($type ='Laptop',$product_id='Dell')
+	public function commenter($comment ='Ceci est un commentaire ',$auteur='ANOUCHKA')
 	{
-		echo '<h2>Voici le produit : '. $type . ' avec un id :' . $product_id. '</h2>';
+		echo '<h2>Comment : '. $comment . ' avec un Auteur :' . $auteur. '</h2>';
 		//return view('product');
 	}
 	/**
-	 * Méthode non publiques
+	 * Méthode non publique
 	 */
 	protected function adminCheck()
 	{

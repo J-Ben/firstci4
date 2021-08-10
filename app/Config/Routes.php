@@ -34,6 +34,46 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+/**
+ * Creating our own root methode
+ * on précise la route/,
+ * les paramettres (:any) pour tout type de données,
+ * on précise le Controller:: puis la méthode/ et les param $1, $2
+ */
+
+ 	$routes->add('product/(:any)/(:any)','Shop::product/$1/$2');
+ 	$routes->add('comment/(:any)/(:any)','Comment::commenter/$1/$2');
+
+/**
+ * Groupe d'url / routes
+ * Il faut bien préciser le path du repertoire
+ */
+	$routes->group('admin',function($routes){
+		$routes->add('user','Admin\Users::index');
+		$routes->add('users','Admin\Users::getAllUsers');
+		$routes->add('product/(:any)/(:any)','Admin\Shop::product/$1/$2');
+
+		// Route du blog
+		$routes->add('blog','Admin\Blog::index');
+		$routes->get('blog/new','Admin\Blog::createNew');
+		$routes->post('blog/new','Admin\Blog::saveBlog');
+
+		// Routes article  
+		$routes->add('article','Admin\Article::index');
+		$routes->get('article/form','Admin\Article::article_form');
+		$routes->post('article/new','Admin\Article::new_article');
+	});
+
+// Route blog_form
+
+	$routes->add('',''); 
+
+/**
+ * Specifique routage
+ */
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
